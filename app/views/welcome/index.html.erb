@@ -1,4 +1,14 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<%= nav_bar fixed: :top, brand: "Jeroen Degrijse", brand_link: root_path, responsive: true do %>
+	<%= menu_group pull: :right do %>
+		<%= menu_item "Works" %>
+		<%= menu_item "Blog" %>
+		<%= menu_item "About" %>
+		<%= menu_item "Contact" %>
+	<% end %>
+<% end %>
+
+<%= content_tag :a, "Your text here", href: "#modal", class: 'btn', data: {toggle: 'modal'} %>
+<%= modal_dialog id: "modal",
+		header: { show_close: true, dismiss: 'modal', title: 'Modal header' },
+		body: { content: 'This is the body' },
+		footer: { content: content_tag(:button, 'Save', class: 'btn') } %>
