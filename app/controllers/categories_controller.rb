@@ -1,5 +1,5 @@
 class CategoriesController < InheritedResources::Base
-  before_filter :authenticate, :only => [:create, :destroy, :new]
+  before_filter :basic_authenticate, only: [:new, :create, :destroy]
 
   def new
     @category = Category.new

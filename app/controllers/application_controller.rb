@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  Users = {"degrijse" => "a1df032f3e8d22213c8933182372a579"}
+  Users = {"degrijse" => "d888dedc02b6e2b9b3971a9b2c6edc53"}
 
   private
   def basic_authenticate

@@ -1,5 +1,4 @@
 class WorksController < InheritedResources::Base
-  #before_filter :authenticate, :only => [:create, :destroy, :new]
   before_filter :prepare_categories
   before_filter :basic_authenticate, only: [:new, :create]
  
