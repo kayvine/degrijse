@@ -4,14 +4,10 @@ class WorksController < InheritedResources::Base
  
   def new
 	@work = Work.new
-	@user = current_user
   end
  
-  def create
-	#raise params.inspect
- 
-	@work  = current_user.works.build(work_params)
- 
+  def create 
+	@work = Work.create(work_params)
 	begin
 	  @work.save!
 	  flash[:success] = "work created!"

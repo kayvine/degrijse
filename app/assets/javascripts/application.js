@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require_directory .
-
+//= require classie
+//= require cbpAnimatedHeader.js
+//= require agency
