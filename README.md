@@ -2,10 +2,12 @@
 
 Eerste app van kevin.
 
-
-To do:
+###############
+### To do: ###
+#############
 
 - Add cdn: http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js to application.js:
+-----------------------------------------------------------------------------------------------------------
 
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
@@ -21,7 +23,8 @@ To do:
 
 Voorlopig: <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" %> in application.html.erb
 
-- Fix AnimatedHeader: doesn't work with turbolinks
+- Fix AnimatedHeader: doesn't work with turbolinks #FIXED#
+-----------------------------------------------------------
 
 (function() {
   var ready;
@@ -38,5 +41,23 @@ Voorlopig: <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/jqu
 
 }).call(this);
 
-- heroku push failed
+
+- heroku push failed #FIXED#
+----------------------------
 DEPRECATION WARNING: The configuration option `config.serve_static_assets` has been renamed to `config.serve_static_files` to clarify its role (it merely enables serving everything in the `public` folder and is unrelated to the asset pipeline). The `serve_static_assets` alias will be removed in Rails 5.0. Please migrate your configuration files accordingly. (called from block in tsort_each at /app/vendor/ruby-2.2.0/lib/ruby/2.2.0/tsort.rb:226)
+
+welcome.coffee error: js in .coffee file ==> http://js2.coffee/ javascript to coffeescript converter
+
+
+- Get Works into portfolio section
+-----------------------------------
+
+<!-- Portfolio Modals -->
+<!-- Use the modals below to showcase details about your portfolio projects! -->
+
+
+- Get Blog/News into Blog/News section
+---------------------------------------
+
+show 5 latest posts in timeline
+
