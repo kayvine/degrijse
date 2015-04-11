@@ -1,34 +1,47 @@
 class WorksController < InheritedResources::Base
-  before_filter :prepare_categories
-  before_filter :basic_authenticate, only: [:new, :create]
- 
-  def new
-	@work = Work.new
-  end
- 
-  def create 
-	@work = Work.create(work_params)
-	begin
-	  @work.save!
-	  flash[:success] = "work created!"
-	  redirect_to root_path
-	rescue Exception => e
-	  render :action => 'new'
+	before_filter :basic_authenticate, only: [:new, :create]
+
+	def show
+		@work = Work.find(params[:id])
+		@categories = @work.category.name
 	end
-  end
- 
-  def destroy
-  end
- 
- 
-  private
-	def work_params
-	  params.require(:work).permit(:title, :description, :category_id)
+	def new
+		@work = Work.new
+		@categories = Category.all.map{ |c| [ c.name, c.id ] }
 	end
 
-	# add the @categories = Category.All to the before action so avail for all actions
-	def prepare_categories
-	  @categories = Category.all
+	def edit
+		@work = Work.find(params[:id])
+		@categories = Category.all.map{|c| [ c.name, c.id ] }
+	end
+
+	def create 
+		@work = Work.create(work_params)
+		@work.category_id = params[:category_id]
+		respond_to do |format|
+		  if @work.save
+			format.html { redirect_to @work, notice: 'work was successfully created.' }
+			format.json { render :show, status: :created, location: @work }
+		  else
+			format.html { render :new }
+			format.json { render json: @work.errors, status: :unprocessable_entity }
+		  end
+		end
+	end
+
+	def update
+		@work = Work.find(params[:id])
+		@work.category_id = params[:category_id]
+		if @work.update(work_params)
+		  redirect_to @work
+		else
+		  render 'edit'
+		end
+  end
+
+	private
+	def work_params
+		params.require(:work).permit(:title, :description, :category_id)
 	end
 
 end

@@ -25,7 +25,7 @@ Voorlopig: <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/jqu
 
 - Fix AnimatedHeader: doesn't work with turbolinks #FIXED#
 -----------------------------------------------------------
-
+#make DOM ready
 (function() {
   var ready;
 
@@ -49,8 +49,24 @@ DEPRECATION WARNING: The configuration option `config.serve_static_assets` has b
 welcome.coffee error: js in .coffee file ==> http://js2.coffee/ javascript to coffeescript converter
 
 
+- Install paperclip/rmagick for images 
+---------------------------------------
+In development mode, you might add this line to config/environments/development.rb):
+	Paperclip.options[:command_path] = "/usr/local/bin/"
+
+has_attached_file :photo,	:url => "/assets/images/portfolio/:category/:style/:filename"
+							:path => ":rails_root/public/assets/images/portfolio/:category/:style/:filename"
+
+
 - Get Works into portfolio section
 -----------------------------------
+
+<%= image_tag("portfolio/roundicons.png", class: "img-responsive") %>
+--> image tag searches in assets/images folder
+
+
+- Generate Portfolio Modals
+----------------------------
 
 <!-- Portfolio Modals -->
 <!-- Use the modals below to showcase details about your portfolio projects! -->
