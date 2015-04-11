@@ -3,6 +3,7 @@ class CreateWorks < ActiveRecord::Migration
 	create_table :works do |t|
 	  t.string :title
 	  t.text :description
+	  t.integer :category_id
 	  t.belongs_to :category, index: true
 
 	  t.timestamps null: false
