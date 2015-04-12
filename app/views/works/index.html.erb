@@ -9,7 +9,8 @@
 			<th>Title</th>
 			<th>Description</th>
 			<th>Category</th>
-			<th colspan="4"></th>
+			<th>Photo</th>
+			<th colspan="5"></th>
 		</tr>
 	</thead>
 
@@ -19,6 +20,16 @@
 				<td><%= work.title %></td>
 				<td><%= work.description %></td>
 				<td><%= work.category.name %></td>
+				<% @work.photos.each do |photo| %>
+					<% if work.photo.object.new_record? %>   #laat work weg?
+					<td>
+						<%= work.photo.title %>
+					</td>
+					<td>
+						<%= work.photo.image.url %>
+					</td>
+					<% end %>
+				<% end %>
 				<td><%= link_to 'Show', work %></td>
 				<td><%= link_to 'Edit', edit_work_path(work) %></td>
 				<td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>

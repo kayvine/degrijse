@@ -58,6 +58,40 @@ has_attached_file :photo,	:url => "/assets/images/portfolio/:category/:style/:fi
 							:path => ":rails_root/public/assets/images/portfolio/:category/:style/:filename"
 
 
+  <% f.fields_for :product_images do |builder| %>
+    <% if builder.object.new_record? %>
+    <div class="field">
+      <%= builder.label :caption, "Image Caption" %>
+      <%= builder.text_field :caption %>
+    </div>																		| THIS DOES NOT WORK
+    <div class="field">															| I dont understand why not :(
+      <%= builder.label :photo, "Image File" %>
+      <%= builder.file_field :photo %>
+    </div>
+    <div class="field">
+      <%= builder.check_box :_destroy %>
+    </div>
+    <% end %>
+  <% end %>
+
+  <% @product.product_images.each do |product_image| %>
+    <%= f.fields_for product_image, index: product_image.id do |product_image_form|%>
+      <% if product_image_form.object.new_record? %>
+      <div class="field">
+        <%= product_image_form.label :caption, "Image Caption" %>
+        <%= product_image_form.text_field :caption %>
+      </div>																	| THIS WORKS !!!!!!!!!!
+      <div class="field">
+        <%= product_image_form.label :photo, "Image File" %>
+        <%= product_image_form.file_field :photo %>
+        <%= product_image_form.check_box :_destroy %>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+
 - Get Works into portfolio section
 -----------------------------------
 
