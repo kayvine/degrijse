@@ -48,7 +48,8 @@ class WorksController < InheritedResources::Base
 
 	private
 	def work_params
-		params.require(:work).permit(:title, :description, :category_id, photos_attributes: [:title, :image, :id])
+		params.require(:work).permit(:title, :description, :category_id, 
+			photos_attributes: [:id, :title, :image, :work_id, :_destroy])
 	end
 
 end

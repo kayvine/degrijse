@@ -26,8 +26,8 @@
 		<%= f.fields_for photo, index: photo.id do |photo_form| %>
 			<% if photo_form.object.new_record? %>
 			<div class="field">
-				<%= photo_form.label :caption, "Image Caption" %><br>
-				<%= photo_form.text_field :caption %>
+				<%= photo_form.label :title, "Image Caption" %><br>
+				<%= photo_form.text_field :title %>
 			</div>
 			<div class="field">
 				<%= photo_form.label :image, "Image File" %><br>

@@ -6,7 +6,7 @@ class Photo < ActiveRecord::Base
 		:url => "/assets/images/:category/:style/:filename"
 
 	validates_attachment :image,
-	# 	:presence => true,
-	# 	:size => { :in => 0..20.megabytes },
+		:presence => true,
+		:size => { :in => 0..20.megabytes },
 		:content_type => { :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"] }
 end

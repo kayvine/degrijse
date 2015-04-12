@@ -19,7 +19,7 @@
 <p>
 	<strong>Photos:</strong>
 	<% for photo in @work.photos %>
-		<%= photo.image.url %>
+		<%= image_tag photo.image.url(:thumb) %>
 	<% end %>
 </p>
 
