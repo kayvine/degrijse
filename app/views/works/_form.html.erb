@@ -1,43 +1,18 @@
-<%= form_for @work, html: { :multipart => true } do |f| %>
-	<% if @work.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
-			<ul>
-			<% @work.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-			<% end %>
-			</ul>
-		</div>
+<%= simple_form_for @work, html: { :multipart => true } do |f| %>
+	<%= f.input :title %>
+	<%= f.input :description %>
+	<%= f.input :category_id, collection: @categories, as: :select, prompt: "Please select" %>
+	<h3 id="photos">Photos</h3>
+	<%= f.simple_fields_for :photos do |photo| %>
+		<%= render 'photo_fields', :f => photo %>
 	<% end %>
-
-	<div class="field">
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
+	<div class="links">
+		<%= link_to_add_association 'add photo', f, :photos %>
 	</div>
-	<div class="field">
-		<%= f.label :description %><br>
-		<%= f.text_area :description %>
-	</div>
-	<div class="field">
-		<%= f.label :category %><br>
-		<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Please select") %>
-	</div>
-	<% @work.photos.each do |photo| %>
-		<%= f.fields_for photo, index: photo.id do |photo_form| %>
-			<% if photo_form.object.new_record? %>
-			<div class="field">
-				<%= photo_form.label :title, "Image Caption" %><br>
-				<%= photo_form.text_field :title %>
-			</div>
-			<div class="field">
-				<%= photo_form.label :image, "Image File" %><br>
-				<%= photo_form.file_field :image %>
-				<%= photo_form.check_box :_destroy %>
-			</div>
-			<% end %>
-		<% end %>
-	<% end %>
+	<br>
 	<div class="actions">
-		<%= f.submit %>
+		<%= f.button :submit, :disable_with => 'Please wait ...' %>
 	</div>
 <% end %>
+
+<!-- select_tag(:category_id, options_for_select(@categories), :prompt => "Please select")  -->

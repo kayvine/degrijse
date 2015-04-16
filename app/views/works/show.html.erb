@@ -1,10 +1,7 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+<p id="notice" class="text-success"><%= notice %></p>
 
-<p>
-	<strong>Title:</strong>
-	<%= @work.title %>
-</p>
+<h3><%= @work.title %></h3>
 
 <p>
 	<strong>Description:</strong>
@@ -17,9 +14,10 @@
 </p>
 
 <p>
-	<strong>Photos:</strong>
+	<strong>Photo(s):</strong><br>
 	<% for photo in @work.photos %>
-		<%= image_tag photo.image.url(:thumb) %>
+		<%= photo.title %><br>
+		<%= image_tag photo.image.url(:medium) %>
 	<% end %>
 </p>
 

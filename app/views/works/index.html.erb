@@ -1,5 +1,5 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+<p id="notice" class="text-success"><%= notice %></p>
 
 <h1>Listing Works</h1>
 
@@ -20,14 +20,10 @@
 				<td><%= work.title %></td>
 				<td><%= work.description %></td>
 				<td><%= work.category.name %></td>
-
 				<% work.photos.each do |photo| %>
-					<td><%= work.photo.title %></td> 
-					<td><%= work.photo.image.url %></td>
-					<td><%= image_tag work.photo.photo.url(:thumb) %></td>
-					<td><%= image_tag photo.photo.url(:thumb) %></td>
+					<td><%= photo.title %></td> 
+					<td><%= image_tag photo.image.url(:thumb) %></td>
 				<% end %>
-
 				<td><%= link_to 'Show', work %></td>
 				<td><%= link_to 'Edit', edit_work_path(work) %></td>
 				<td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>

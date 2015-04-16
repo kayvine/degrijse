@@ -1,6 +1,5 @@
 class Photo < ActiveRecord::Base
-	belongs_to :work
-	
+
 	has_attached_file :image, 
 		:styles => { :medium => "360x360>", :thumb => "100x100>" }, 
 		:url => "/assets/images/:category/:style/:filename"
