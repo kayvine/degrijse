@@ -111,3 +111,5 @@ has_attached_file :photo,	:url => "/assets/images/portfolio/:category/:style/:fi
 
 show 5 latest posts in timeline
 
+
+(sublime_text:14614): GLib-CRITICAL **: Source ID 3633 was not found when attempting to remove it

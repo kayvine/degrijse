@@ -29,7 +29,10 @@ gem 'devise'
 # Use Paperclip for images
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'rmagick', :git=>'http://github.com/rmagick/rmagick.git'
-
+gem "paperclip-storage-ftp"
+# Use for nested forms
+gem 'cocoon'
+gem 'simple_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,6 +54,3 @@ group :development, :test do
 end
 
 gem 'rails_12factor', group: :production
-
-gem 'cocoon'
-gem 'simple_form'
