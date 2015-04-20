@@ -6,28 +6,12 @@ Eerste app van kevin.
 
 
 ###############
-### To do: ###
+### TO DO: ###
 #############
 
-- Add cdn: http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js to application.js:
------------------------------------------------------------------------------------------------------------
-
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
-//= require twitter/bootstrap
-//= require turbolinks
-//= require "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" <= werkt niet !!!
-//= require classie
-//= require cbpAnimatedHeader
-//= require agency
-
-Voorlopig: <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" %> in application.html.erb
 
 - Fix AnimatedHeader: doesn't work with turbolinks #FIXED#
------------------------------------------------------------
+----------------------------------------------------------
 #make DOM ready
 (function() {
 	var ready;
@@ -39,9 +23,7 @@ Voorlopig: <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/jqu
 	};
 
 	$(document).ready(ready);
-
 	$(document).on('page:load', ready);
-
 }).call(this);
 
 
@@ -53,76 +35,104 @@ welcome.coffee error: js in .coffee file ==> http://js2.coffee/ javascript to co
 
 
 - Install paperclip/rmagick for images #DONE#
----------------------------------------
+---------------------------------------------
+
 In development mode, you might add this line to config/environments/development.rb):
 	Paperclip.options[:command_path] = "/usr/local/bin/"
 
-has_attached_file :photo,	:url => "/assets/images/portfolio/:category/:style/:filename"
-							:path => ":rails_root/public/assets/images/portfolio/:category/:style/:filename"
 
-
-	<% f.fields_for :product_images do |builder| %>
-		<% if builder.object.new_record? %>
-		<div class="field">
-			<%= builder.label :caption, "Image Caption" %>
-			<%= builder.text_field :caption %>
-		</div>																	                           	| THIS DOES NOT WORK
-		<div class="field">														                     	| I dont understand why not :(
-			<%= builder.label :photo, "Image File" %>
-			<%= builder.file_field :photo %>
-		</div>
-		<div class="field">
-			<%= builder.check_box :_destroy %>
-		</div>
-		<% end %>
+<%= simple_form_for @work, html: { :multipart => true } do |f| %>
+	<%= f.input :title %>
+	<%= f.input :description %>
+	<%= f.input :category_id, collection: @categories, as: :select, prompt: "Please select" %>
+	<h3 id="photos">Photos</h3>
+	<%= f.simple_fields_for :photos do |photo| %>
+		<%= render 'photo_fields', :f => photo %>
 	<% end %>
+	<div class="links">
+		<%= link_to_add_association 'add photo', f, :photos %>
+	</div>
+	<br>
+	<div class="actions">
+		<%= f.button :submit, :disable_with => 'Please wait ...' %>
+	</div>
+<% end %>
 
-	<% @product.product_images.each do |product_image| %>
-		<%= f.fields_for product_image, index: product_image.id do |product_image_form|%>
-			<% if product_image_form.object.new_record? %>
-			<div class="field">
-				<%= product_image_form.label :caption, "Image Caption" %>
-				<%= product_image_form.text_field :caption %>
-			</div>																	                          | THIS WORKS !!!!!!!!!!
-			<div class="field">
-				<%= product_image_form.label :photo, "Image File" %>
-				<%= product_image_form.file_field :photo %>
-				<%= product_image_form.check_box :_destroy %>
-			</div>
-			<% end %>
-		<% end %>
-	<% end %>
+
+- Store paperclip images via ftp #DONE#
+--------------------------------
+
+	has_attached_file :image, 
+		:styles => { :large => "960x960>", :medium => "400x300>", :thumb => "100x100>" }, 
+
+		# Choose the FTP storage backend
+		:storage => :ftp,
+
+		# Set where to store the file on the FTP server(s).
+		# This supports Paperclip::Interpolations.
+		:path => "/rubytest/images/:style/:filename",
+
+		# The full URL of where the attachment is publicly accessible.
+		# This supports Paperclip::Interpolations.
+		:url => "http://www.papomode.be/rubytest/images/:style/:filename",
+
+		# The list of FTP servers to use
+		:ftp_servers => [
+		  {
+			:host     => "ftp.papomode.be",
+			:user     => "papomode.be",
+			:password => "fvhb11",
+			:port     => 21, # optional, 21 by default
+			:passive  => true  # optional, false by default
+		  }
+		]
 
 
 - Make Site-name slide up using Stellar.js
 ------------------------------------------
 
-#initialise Stellar.js
+# initialise Stellar.js
+# keep scrolling from skipping: hideDistantElements: false
 $ ->
-	$.stellar({hideDistantElements: false})                          | keep scrolling from skipping: hideDistantElements: false
+	$.stellar({hideDistantElements: false})
 
-<div id="page-wrapper" data-stellar-background-ratio="0.3">
-	<div id="page">
-		<div id="name-and-slogan" data-stellar-ratio="1.3">
-			<h1 id="site-name">
-				<a href="/" title="Home" rel="home"><span>Cedric Vella</span></a>
-			</h1>
-			<div id="site-slogan">Videographer &amp; Sound Designer</div>
-		</div> <!-- /#name-and-slogan -->
-		<div id="navigation">
-			<ul>
-				<li><a id="worklink" href="#main">WORK</a></li>
-				<li><a id="aboutlink" href="#node-3">ABOUT</a></li>
-				<li><a id="contactlink" href="#node-7">CONTACT</a></li>
-			</ul>
-		</div>
+	<div id="page-wrapper" data-stellar-background-ratio="0.3">
+		<div id="page">
+			<div id="name-and-slogan" data-stellar-ratio="1.3">
+				<h1 id="site-name">
+					<a href="/" title="Home" rel="home"><span>Site Name</span></a>
+				</h1>
+				<div id="site-slogan">Videographer &amp; Sound Designer</div>
+			</div> <!-- /#name-and-slogan -->
 
 
 - Get Works into portfolio section
 -----------------------------------
 
-<%= image_tag("portfolio/roundicons.png", class: "img-responsive") %>
---> image tag searches in assets/images folder
+# Make Welcome_controller ready for works
+	def index
+		@works = Work.all
+	end
+
+# index.html.erb
+	<% @works.each do |work| %>
+		<div class="col-md-4 col-sm-6 portfolio-item">
+				<a href="#portfolioModal<%= work.id %>" class="portfolio-link" data-toggle="modal">
+						<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+										<h4><%= work.title %></h4>
+										<p class="text-muted"><%= work.category.name %></p>
+										<i class="fa fa-plus fa-3x"></i>
+								</div>
+						</div>
+						<%= image_tag work.photos.first.image.url(:medium) %>
+				</a>
+				<div class="portfolio-caption">
+						<h4><%= work.title %></h4>
+						<p class="text-muted"><%= work.category.name %></p>
+				</div>
+		</div>
+	<% end %>
 
 
 - Generate Portfolio Modals
@@ -138,4 +148,4 @@ $ ->
 show 5 latest posts in timeline
 
 
-(sublime_text:14614): GLib-CRITICAL **: Source ID 3633 was not found when attempting to remove it
+
