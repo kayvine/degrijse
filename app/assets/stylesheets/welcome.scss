@@ -16,10 +16,6 @@ p {
 
 p.large {font-size: 16px; }
 
-p.text-muted { 
-	text-align: left;
-}
-
 a {
 	color: #de825f;
 	outline: 0;
@@ -152,7 +148,7 @@ fieldset[disabled] .btn-primary.active {
 
 .navbar-default {
 	border-color: transparent;
-	background-color: rgba(38,38,38,.9); /*same as .navbar-default.navbar-shrink, = #262626 */
+	background-color: rgb(38,38,38); /*same as .navbar-default.navbar-shrink, = #262626 */
 }
 
 .navbar-default .navbar-brand {
@@ -191,8 +187,8 @@ fieldset[disabled] .btn-primary.active {
 	font-weight: 400;
 	letter-spacing: 1px;
 	color: #f0f0f0;
-	padding: 0;
-	margin: 15px;
+	padding: 5px 0;
+	margin: 10px 15px;
 }
 
 .navbar-default .nav li a:hover,
@@ -232,7 +228,7 @@ fieldset[disabled] .btn-primary.active {
 
 	.navbar-default.navbar-shrink {
 		padding: 7px 0;
-		background-color: rgba(38,38,38,.9);
+		background-color: rgb(38,38,38);
 	}
 
 	.navbar-default.navbar-shrink .navbar-brand {
@@ -244,10 +240,6 @@ header {
 	text-align: center;
 	color: #fff;
     background: asset-url("header-bg.jpg") no-repeat fixed 0% 0% / cover transparent;    
-/*	background-attachment: scroll;
-	background-image: asset-url("header-bg.jpg"); 
-	background-position: center center;
-	background-repeat: none; */
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
@@ -324,14 +316,18 @@ section h3.section-subheading {
 		padding: 110px 0;
 	}
 }
-/*
+
+#services p.text-muted { 
+	text-align: left;		/* remove this later */
+}
+
 .service-heading {
 	margin: 15px 0;
 	text-transform: none;
 }
 
 #portfolio .portfolio-item {
-	right: 0;
+	/*right: 0;*/
 	margin: 0 0 15px;
 }
 
@@ -339,7 +335,8 @@ section h3.section-subheading {
 	display: block;
 	position: relative;
 	margin: 0 auto;
-	max-width: 400px;
+	/*max-width: 400px;*/
+	img {max-height: 260px;}
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover {
@@ -347,7 +344,7 @@ section h3.section-subheading {
 	width: 100%;
 	height: 100%;
 	opacity: 0;
-	background: rgba(254,209,54,.9);
+	background: rgba(222,130,95,.9);
 	-webkit-transition: all ease .5s;
 	-moz-transition: all ease .5s;
 	transition: all ease .5s;
@@ -606,16 +603,41 @@ section h3.section-subheading {
 		padding: 0 100px 20px 20px;
 	}
 }
-*/
+
 section#contact {
-/*	background-color: #222;
-	background-image: asset-url("map-image.png");
+	background-color: #262626;
+    background: asset-url("footer-bg.jpg") no-repeat fixed 0% 0% / cover transparent;    
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+/*	background-image: asset-url("map-image.png");
 	background-position: center;
 	background-repeat: no-repeat;
 */}
 
 section#contact .section-heading {
 	color: #f0f0f0;
+}
+
+section#contact .info {
+	color: #f0f0f0;
+	h3, {margin-bottom: 25px;}
+	p {
+		font-size: 16px;
+		margin-bottom: 25px;
+	}
+	ul.buttons {
+		margin-bottom: 0;
+		font-size: 16px;
+	}
+	ul.buttons li {
+		margin-bottom: 8px;
+	}
+	ul.buttons li a {
+		color: #f0f0f0;
+	}
+
 }
 
 section#contact .form-group {
@@ -633,7 +655,7 @@ section#contact .form-group input.form-control {
 }
 
 section#contact .form-group textarea.form-control {
-	height: 236px;
+	height: 200px;
 }
 
 section#contact .form-control:focus {
@@ -705,7 +727,7 @@ ul.social-buttons li a {
 	font-size: 20px;
 	line-height: 40px;
 	outline: 0;
-	color: #fff;
+	color: #f0f0f0;
 	background-color: #262626;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
@@ -715,7 +737,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
-	background-color: #262626;
+	background-color: #222;
 }
 
 .btn:focus,
