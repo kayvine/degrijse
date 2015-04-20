@@ -2,6 +2,9 @@
 
 Eerste app van kevin.
 
+(sublime_text:14614): GLib-CRITICAL **: Source ID 3633 was not found when attempting to remove it
+
+
 ###############
 ### To do: ###
 #############
@@ -27,17 +30,17 @@ Voorlopig: <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/jqu
 -----------------------------------------------------------
 #make DOM ready
 (function() {
-  var ready;
+	var ready;
 
-  ready = function() {
+	ready = function() {
 
-  	/* code here */
+		/* code here */
 
-  };
+	};
 
-  $(document).ready(ready);
+	$(document).ready(ready);
 
-  $(document).on('page:load', ready);
+	$(document).on('page:load', ready);
 
 }).call(this);
 
@@ -49,7 +52,7 @@ DEPRECATION WARNING: The configuration option `config.serve_static_assets` has b
 welcome.coffee error: js in .coffee file ==> http://js2.coffee/ javascript to coffeescript converter
 
 
-- Install paperclip/rmagick for images 
+- Install paperclip/rmagick for images #DONE#
 ---------------------------------------
 In development mode, you might add this line to config/environments/development.rb):
 	Paperclip.options[:command_path] = "/usr/local/bin/"
@@ -58,38 +61,61 @@ has_attached_file :photo,	:url => "/assets/images/portfolio/:category/:style/:fi
 							:path => ":rails_root/public/assets/images/portfolio/:category/:style/:filename"
 
 
-  <% f.fields_for :product_images do |builder| %>
-    <% if builder.object.new_record? %>
-    <div class="field">
-      <%= builder.label :caption, "Image Caption" %>
-      <%= builder.text_field :caption %>
-    </div>																		| THIS DOES NOT WORK
-    <div class="field">															| I dont understand why not :(
-      <%= builder.label :photo, "Image File" %>
-      <%= builder.file_field :photo %>
-    </div>
-    <div class="field">
-      <%= builder.check_box :_destroy %>
-    </div>
-    <% end %>
-  <% end %>
+	<% f.fields_for :product_images do |builder| %>
+		<% if builder.object.new_record? %>
+		<div class="field">
+			<%= builder.label :caption, "Image Caption" %>
+			<%= builder.text_field :caption %>
+		</div>																	                           	| THIS DOES NOT WORK
+		<div class="field">														                     	| I dont understand why not :(
+			<%= builder.label :photo, "Image File" %>
+			<%= builder.file_field :photo %>
+		</div>
+		<div class="field">
+			<%= builder.check_box :_destroy %>
+		</div>
+		<% end %>
+	<% end %>
 
-  <% @product.product_images.each do |product_image| %>
-    <%= f.fields_for product_image, index: product_image.id do |product_image_form|%>
-      <% if product_image_form.object.new_record? %>
-      <div class="field">
-        <%= product_image_form.label :caption, "Image Caption" %>
-        <%= product_image_form.text_field :caption %>
-      </div>																	| THIS WORKS !!!!!!!!!!
-      <div class="field">
-        <%= product_image_form.label :photo, "Image File" %>
-        <%= product_image_form.file_field :photo %>
-        <%= product_image_form.check_box :_destroy %>
-      </div>
-      <% end %>
-    <% end %>
-  <% end %>
+	<% @product.product_images.each do |product_image| %>
+		<%= f.fields_for product_image, index: product_image.id do |product_image_form|%>
+			<% if product_image_form.object.new_record? %>
+			<div class="field">
+				<%= product_image_form.label :caption, "Image Caption" %>
+				<%= product_image_form.text_field :caption %>
+			</div>																	                          | THIS WORKS !!!!!!!!!!
+			<div class="field">
+				<%= product_image_form.label :photo, "Image File" %>
+				<%= product_image_form.file_field :photo %>
+				<%= product_image_form.check_box :_destroy %>
+			</div>
+			<% end %>
+		<% end %>
+	<% end %>
 
+
+- Make Site-name slide up using Stellar.js
+------------------------------------------
+
+#initialise Stellar.js
+$ ->
+	$.stellar({hideDistantElements: false})                          | keep scrolling from skipping: hideDistantElements: false
+
+<div id="page-wrapper" data-stellar-background-ratio="0.3">
+	<div id="page">
+		<div id="name-and-slogan" data-stellar-ratio="1.3">
+			<h1 id="site-name">
+				<a href="/" title="Home" rel="home"><span>Cedric Vella</span></a>
+			</h1>
+			<div id="site-slogan">Videographer &amp; Sound Designer</div>
+		</div> <!-- /#name-and-slogan -->
+		<div id="navigation">
+			<ul>
+				<li><a id="worklink" href="#main">WORK</a></li>
+				<li><a id="aboutlink" href="#node-3">ABOUT</a></li>
+				<li><a id="contactlink" href="#node-7">CONTACT</a></li>
+			</ul>
+		</div>
 
 
 - Get Works into portfolio section

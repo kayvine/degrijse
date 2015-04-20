@@ -15,6 +15,8 @@
 //= require twitter/bootstrap
 //= require cocoon
 //= require turbolinks
+//= require jquery.easing.min
 //= require classie
-//= require cbpAnimatedHeader.js
-//= require agency
+//= require cbpAnimatedHeader
+//= require stellar.min
+//= require welcome
