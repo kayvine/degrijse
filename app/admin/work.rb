@@ -52,6 +52,4 @@ ActiveAdmin.register Work do
 	  belongs_to :work
 	end
 
-	config.comments = false
-
 end

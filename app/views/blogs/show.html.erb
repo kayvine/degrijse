@@ -1,0 +1,31 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog.blog_title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @blog.blog_text %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @blog.blog_date %>
+</p>
+
+<p>
+  <strong>Blog link:</strong>
+  <%= @blog.blog_link %>
+</p>
+
+<p>
+  <strong>Blog image:</strong>
+  <%= @blog.blog_image %>
+</p>
+<br>
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
+</div>

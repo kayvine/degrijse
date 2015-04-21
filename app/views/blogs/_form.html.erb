@@ -1,0 +1,15 @@
+<%= simple_form_for @blog do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :blog_title %>
+    <%= f.input :blog_text %>
+    <%= f.input :blog_date, as: :date, order: [:day, :month, :year], wrapper_html: { class: 'form-inline' } %>
+    <%= f.input :blog_link, required: false %>
+    <%= f.input :blog_image %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

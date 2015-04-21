@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blog_title: MyString
+  blog_text: MyText
+  blog_date: 2015-04-21
+  blog_link: MyText
+
+two:
+  blog_title: MyString
+  blog_text: MyText
+  blog_date: 2015-04-21
+  blog_link: MyText
