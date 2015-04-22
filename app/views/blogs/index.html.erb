@@ -20,7 +20,7 @@
       <tr>
         <td><%= blog.blog_title %></td>
         <td><%= blog.blog_text %></td>
-        <td><%= blog.blog_date %></td>
+        <td><%= l blog.blog_date %></td>
         <td><%= blog.blog_link %></td>
         <td><%= image_tag blog.blog_image.url(:thumb) %></td>
         <td><%= link_to 'Show', blog %></td>

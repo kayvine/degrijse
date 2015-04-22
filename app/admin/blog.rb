@@ -7,8 +7,8 @@ ActiveAdmin.register Blog do
 			f.input :blog_title, label: "Titel"
 			f.input :blog_text, label: "Tekst"
 			f.input	:blog_date, order: [:day, :month, :year], label: "Datum"
-			f.input	:blog_link, as: :url, label: "Link naar externe website"
-			f.input :blog_image, as: :file, label: "Afbeelding", :hint => f.object.blog_image.present? \
+			f.input	:blog_link, as: :url, label: "Link naar externe website", hint: "Gebruik http://www.voorbeeld.com"
+			f.input :blog_image, as: :file, label: "Afbeelding", hint: f.object.blog_image.present? \
 				? image_tag(f.object.blog_image.url(:thumb))
 				: content_tag(:span, "no cover page yet")
 		end
@@ -26,16 +26,25 @@ ActiveAdmin.register Blog do
 		actions
 	end
 
-	# show title: :blog_title do
-	# 	span blog.blog_text
-	# 	div :blog_date, as: :date, order: [:day, :month, :year]
-	# 	p "Link naar externe website" do
-	# 		link_to blog.blog_link, blog.blog_link
-	# 		link_to(:blog_link, :blog_link)
-	# 	end
-	# 	# div 'Afbeelding' do |ad|
-	# 	# 	image_tag ad.blog_image.url(:thumb)
-	# 	# end
-	# end
+	show title: :blog_title do
+		ul do
+			li simple_format(blog.blog_text)
+			li do
+				strong "Datum:"
+				span l blog.blog_date, format: :long
+			end
+			li do
+				link_to blog.blog_link, blog.blog_link
+			end
+			li do
+				strong "Afbeelding:"
+				div image_tag blog.blog_image
+			end
+		end
+	end
+
+	filter :blog_title
+	filter :blog_date
+	filter :created_at
 
 end

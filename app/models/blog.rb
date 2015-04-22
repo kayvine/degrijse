@@ -3,7 +3,7 @@ class Blog < ActiveRecord::Base
 	validates :blog_title, :blog_text, :blog_date, :presence => true
 
 	has_attached_file :blog_image, 
-		:styles => { :medium => "390x260^", :thumb => "100x100>" }, 
+		:styles => { :medium => "400x400>", :thumb => "100x100>" }, 
 
 		# Choose the FTP storage backend
 		:storage => :ftp,

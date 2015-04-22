@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :blogs
 	devise_for :admin_users, ActiveAdmin::Devise.config
 	ActiveAdmin.routes(self)
 
+	resources :blogs
 	resources :categories
 	resources :works
 	resources :photos

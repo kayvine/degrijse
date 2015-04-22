@@ -1,29 +1,27 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h3>
   <%= @blog.blog_title %>
+</h3>
+
+<p>
+  <%= simple_format(@blog.blog_text, class: 'description') %>
 </p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @blog.blog_text %>
+  <strong>Datum:</strong>
+  <%= l @blog.blog_date, format: :long %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @blog.blog_date %>
+  <strong>Link:</strong>
+  <%= link_to @blog.blog_link, @blog.blog_link %>
 </p>
 
 <p>
-  <strong>Blog link:</strong>
-  <%= @blog.blog_link %>
-</p>
-
-<p>
-  <strong>Blog image:</strong>
-  <%= @blog.blog_image %>
+  <strong>Afbeelding:</strong><br>
+  <%= image_tag @blog.blog_image %>
 </p>
 <br>
 <%= link_to 'Edit', edit_blog_path(@blog) %> |

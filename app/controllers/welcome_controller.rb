@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
 
 	def index
 		@works = Work.all
+		@blogs = Blog.all
 	end
 
 	private
