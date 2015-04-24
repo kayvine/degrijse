@@ -1,4 +1,5 @@
 body {
+	position: relative;
 	overflow-x: hidden;
 	font-family: "Roboto Slab","Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -606,15 +607,15 @@ section h3.section-subheading {
 
 section#contact {
 	background-color: #262626;
-    background: asset-url("footer-bg.jpg") no-repeat fixed 0% 0% / cover transparent;    
+    /*background: asset-url("footer-bg.jpg") no-repeat fixed 0% 0% / cover transparent;*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	-o-background-size: cover;
-/*	background-image: asset-url("map-image.png");
+	background-image: asset-url("footer-bg.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
-*/}
+}
 
 section#contact .section-heading {
 	color: #f0f0f0;
@@ -623,9 +624,13 @@ section#contact .section-heading {
 section#contact .info {
 	color: #f0f0f0;
 	h3, {margin-bottom: 25px;}
-	p {
-		font-size: 16px;
+	ul {
+		list-style: none;
+		padding: 0;
 		margin-bottom: 25px;
+	}
+	ul li {
+		margin-bottom: 10px;
 	}
 	ul.buttons {
 		margin-bottom: 0;
@@ -637,7 +642,6 @@ section#contact .info {
 	ul.buttons li a {
 		color: #f0f0f0;
 	}
-
 }
 
 section#contact .form-group {
@@ -761,6 +765,38 @@ ul.social-buttons li a:active {
 .portfolio-modal .modal-content h2 {
 	margin-bottom: 15px;
 	font-size: 3em;
+}
+
+.portfolio-modal .modal-content .carousel {margin-bottom: 40px;}
+.portfolio-modal .modal-content .carousel .controls {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	width: 10%;
+	color: #f0f0f0;
+	text-align: center;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
+	opacity: 0.8;
+	z-index: 200;
+}
+.portfolio-modal .modal-content .carousel a:hover {
+	color: #fff;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
+	opacity: 1;
+}
+.portfolio-modal .modal-content .carousel .controls.left {}
+.portfolio-modal .modal-content .carousel .controls.right {right: 0px; left: auto;}
+.portfolio-modal .modal-content .carousel .controls i {
+	position: relative;
+	top: 50%;
+	z-index: 205;
+	display: inline-block;
+	margin-top: -15px;
+}
+.portfolio-modal .modal-content .carousel .controls.left i,
+.portfolio-modal .modal-content .carousel .controls.right i {
+	/*margin-left: -15px;*/
 }
 
 .portfolio-modal .modal-content p {

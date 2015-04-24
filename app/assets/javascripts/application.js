@@ -19,4 +19,5 @@
 //= require classie
 //= require cbpAnimatedHeader
 //= require stellar.min
+//= require jquery.cycle2.min
 //= require welcome

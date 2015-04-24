@@ -37,24 +37,25 @@ Install paperclip/rmagick for images #DONE#
 ---------------------------------------------
 
 In development mode, you might add this line to config/environments/development.rb):
+
 	Paperclip.options[:command_path] = "/usr/local/bin/"
 
-<%= simple_form_for @work, html: { :multipart => true } do |f| %>
-	<%= f.input :title %>
-	<%= f.input :description %>
-	<%= f.input :category_id, collection: @categories, as: :select, prompt: "Please select" %>
-	<h3 id="photos">Photos</h3>
-	<%= f.simple_fields_for :photos do |photo| %>
-		<%= render 'photo_fields', :f => photo %>
+	<%= simple_form_for @work, html: { :multipart => true } do |f| %>
+		<%= f.input :title %>
+		<%= f.input :description %>
+		<%= f.input :category_id, collection: @categories, as: :select, prompt: "Please select" %>
+		<h3 id="photos">Photos</h3>
+		<%= f.simple_fields_for :photos do |photo| %>
+			<%= render 'photo_fields', :f => photo %>
+		<% end %>
+		<div class="links">
+			<%= link_to_add_association 'add photo', f, :photos %>
+		</div>
+		<br>
+		<div class="actions">
+			<%= f.button :submit, :disable_with => 'Please wait ...' %>
+		</div>
 	<% end %>
-	<div class="links">
-		<%= link_to_add_association 'add photo', f, :photos %>
-	</div>
-	<br>
-	<div class="actions">
-		<%= f.button :submit, :disable_with => 'Please wait ...' %>
-	</div>
-<% end %>
 
 
 Store paperclip images via ftp #DONE#
@@ -93,43 +94,45 @@ initialise Stellar.js (keep scrolling from skipping: hideDistantElements: false)
 $ ->
 	$.stellar({hideDistantElements: false})
 
-<div id="page-wrapper" data-stellar-background-ratio="0.3">
-	<div id="page">
-		<div id="name-and-slogan" data-stellar-ratio="1.3">
-			<h1 id="site-name">
-				<a href="/" title="Home" rel="home"><span>Site Name</span></a>
-			</h1>
-			<div id="site-slogan">Portfolio</div>
-		</div> <!-- /#name-and-slogan -->
+	<div id="page-wrapper" data-stellar-background-ratio="0.3">
+		<div id="page">
+			<div id="name-and-slogan" data-stellar-ratio="1.3">
+				<h1 id="site-name">
+					<a href="/" title="Home" rel="home"><span>Site Name</span></a>
+				</h1>
+				<div id="site-slogan">Portfolio</div>
+			</div> <!-- /#name-and-slogan -->
 
 
 Get Works into portfolio section
 --------------------------------
 
 Make Welcome_controller ready for works:
+
 	def index
 		@works = Work.all
 	end
 
 index.html.erb:
-<% @works.each do |work| %>
-	<div class="col-md-4 col-sm-6 portfolio-item">
-			<a href="#portfolioModal<%= work.id %>" class="portfolio-link" data-toggle="modal">
-					<div class="portfolio-hover">
-							<div class="portfolio-hover-content">
-									<h4><%= work.title %></h4>
-									<p class="text-muted"><%= work.category.name %></p>
-									<i class="fa fa-plus fa-3x"></i>
-							</div>
-					</div>
-					<%= image_tag work.photos.first.image.url(:medium) %>
-			</a>
-			<div class="portfolio-caption">
-					<h4><%= work.title %></h4>
-					<p class="text-muted"><%= work.category.name %></p>
-			</div>
-	</div>
-<% end %>
+
+	<% @works.each do |work| %>
+		<div class="col-md-4 col-sm-6 portfolio-item">
+				<a href="#portfolioModal<%= work.id %>" class="portfolio-link" data-toggle="modal">
+						<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+										<h4><%= work.title %></h4>
+										<p class="text-muted"><%= work.category.name %></p>
+										<i class="fa fa-plus fa-3x"></i>
+								</div>
+						</div>
+						<%= image_tag work.photos.first.image.url(:medium) %>
+				</a>
+				<div class="portfolio-caption">
+						<h4><%= work.title %></h4>
+						<p class="text-muted"><%= work.category.name %></p>
+				</div>
+		</div>
+	<% end %>
 
 
 Generate Portfolio Modals

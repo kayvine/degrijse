@@ -10,6 +10,7 @@ ActiveAdmin.register Work do
 			f.has_many :photos, heading: "Foto's" do |p|
 				p.input :title, label: "Afbeelding titel"
 				p.input :image, as: :file, label: "Afbeelding", hint: image_tag(p.object.image.url(:thumb))
+				p.input :_destroy, as: :boolean, required: false, label: 'Remove photo'
 			end
 		end
 			# f.inputs :for => :photos, allow_destroy: true, new_record: false do |p|

@@ -19,7 +19,7 @@
 			var docElem = document.documentElement,
 				header = document.querySelector( '.navbar-default' ),
 				didScroll = false,
-				changeHeaderOn = 480;
+				changeHeaderOn = 520;
 
 			function init() {
 				window.addEventListener( 'scroll', function( event ) {
