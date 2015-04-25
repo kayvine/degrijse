@@ -478,6 +478,7 @@ section h3.section-subheading {
 	margin-top: 12px;
 	font-size: 10px;
 	line-height: 14px;
+	color: #f0f0f0;
 }
 
 .timeline>li:nth-child(even)>.timeline-panel { /*:nth-child(even)*/
@@ -711,13 +712,13 @@ footer span.copyright {
 	line-height: 40px;
 }
 
-/*footer ul.quicklinks {
+footer ul.quicklinks {
 	margin-bottom: 0;
 	text-transform: uppercase;
 	text-transform: none;
 	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	line-height: 40px;
-} */
+} 
 
 ul.social-buttons {
 	margin-bottom: 0;
@@ -769,6 +770,7 @@ ul.social-buttons li a:active {
 
 .portfolio-modal .modal-content .carousel {margin-bottom: 40px;}
 .portfolio-modal .modal-content .carousel .controls {
+	display: none;
 	position: absolute;
 	top: 0px;
 	bottom: 0px;

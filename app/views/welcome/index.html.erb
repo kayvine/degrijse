@@ -136,7 +136,7 @@
 									<% end %>
 										<li class="timeline-inverted">
 												<div class="timeline-image">
-														<h4>Be Part <br>Of Our <br>Story!</h4>
+														<a href="#curriculum"><h4>En nog<br>veel<br>meer!</h4></a>
 												</div>
 										</li>
 								</ul>
@@ -164,10 +164,7 @@
 									<li>Aggregaatsopleiding</li>
 									<li>Initiële lerarenopleiding</li>
 									<li>Prijs Theodoor Van Lerius (Beeldhouwkunst academiejaar 2005-2006)</li>
-									<li>Tentoonstelling in de Belgische Ambassade te Nederland, Den Haag</li>
 									<li>Prijs “gezichtspunt – SABAM” Beeldhouwwerk</li>
-									<li>Tentoonstelling EnFlammé Roeselare 2008</li>
-									<li>Tentoonstelling Radio Klara in de stad (Izegem) 2008</li>
 								</ul>
 								<ul class="fa-ul buttons">
 										<li><i class="fa-li fa fa-envelope-o fa-lg"></i> 
@@ -208,7 +205,6 @@
 						<div class="col-md-4">
 								<span class="copyright">Copyright &copy; Jeroen Degrijse 2015</span>
 						</div>
-						<div class="col-md-4"></div>
 						<div class="col-md-4">
 								<ul class="list-inline social-buttons">
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -216,6 +212,12 @@
 										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 								</ul>
 						</div>
+						<div class="col-md-4">
+							<ul class="list-inline quicklinks">
+								<li><a href="#curriculum">Curriculum</a></li> 
+								<li><a href="#">Webdesign</a></li> 
+							</ul>
+						</div> 
 				</div>
 		</div>
 </footer>
@@ -239,7 +241,11 @@
 													<h2><%= work.title %></h2>
 
 													<div class="carousel">
-														<div class="cycle-slideshow" data-cycle-next=".right" data-cycle-prev=".left" data-cycle-timeout="0">
+														<div class="cycle-slideshow" 
+														data-cycle-next=".right" 
+														data-cycle-prev=".left" 
+														data-cycle-timeout="0"
+														data-cycle-auto-height="calc">
 														<% work.photos.each do |photo| %>
 															<%= image_tag(photo.image.url(:large), :class => "img-responsive img-centered") %>
 														<% end %>
