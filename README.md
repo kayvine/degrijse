@@ -87,6 +87,12 @@ Store paperclip images via ftp #DONE#
 		]
 
 
+Optimizing and minifying uploaded images
+----------------------------------------
+
+Using [PaperclipOptimizer](https://github.com/janfoeh/paperclip-optimizer)
+
+
 Make Site-name slide up using Stellar.js
 ----------------------------------------
 

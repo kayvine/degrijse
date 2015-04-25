@@ -29,5 +29,7 @@ module Degrijse
 
     config.assets.precompile += %w[admin/active_admin.css admin/active_admin.js]
 
+    config.assets.image_optim = false
+
   end
 end

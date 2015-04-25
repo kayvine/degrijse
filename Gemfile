@@ -30,6 +30,9 @@ gem 'devise'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'rmagick', :git=>'http://github.com/rmagick/rmagick.git'
 gem "paperclip-storage-ftp"
+gem "image_optim_bin", group: :production
+gem "paperclip-optimizer"
+
 # Use for nested forms
 gem 'cocoon'
 gem 'simple_form'

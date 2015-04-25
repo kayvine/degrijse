@@ -1,7 +1,8 @@
 class Photo < ActiveRecord::Base
 
 	has_attached_file :image, 
-		:styles => { :large => "910^", :medium => "400x266#", :thumb => "150x100>" }, 
+		styles: { :large => "910^", :medium => "400x266#", :thumb => "150x100>" }, 
+		processors: [:thumbnail, :paperclip_optimizer],
 
 		# Choose the FTP storage backend
 		:storage => :ftp,
