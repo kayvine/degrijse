@@ -62,7 +62,7 @@ Store paperclip images via ftp #DONE#
 --------------------------------
 
 	has_attached_file :image, 
-		:styles => { :large => "960x960>", :medium => "400x300>", :thumb => "100x100>" }, 
+		:styles => { :large => "960", :medium => "400x300>", :thumb => "100x100" }, 
 
 		# Choose the FTP storage backend
 		:storage => :ftp,
