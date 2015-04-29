@@ -11,8 +11,8 @@ welcome.coffee error: js in .coffee file ==> http://js2.coffee/ javascript to co
 #
 
 
-Fix AnimatedHeader: doesn't work with turbolinks #FIXED#
---------------------------------------------------------
+Fix AnimatedHeader: doesn't work with turbolinks
+------------------------------------------------
 make DOM ready:
 
 	(function() {
@@ -27,14 +27,8 @@ make DOM ready:
 	}).call(this);
 
 
-heroku push failed #FIXED#
-----------------------------
-DEPRECATION WARNING: The configuration option `config.serve_static_assets` has been renamed to `config.serve_static_files` to clarify its role (it merely enables serving everything in the `public` folder and is unrelated to the asset pipeline). The `serve_static_assets` alias will be removed in Rails 5.0. Please migrate your configuration files accordingly. (called from block in tsort_each at /app/vendor/ruby-2.2.0/lib/ruby/2.2.0/tsort.rb:226)
-
-
-
-Install paperclip/rmagick for images #DONE#
----------------------------------------------
+Install paperclip/rmagick for images
+------------------------------------
 
 In development mode, you might add this line to config/environments/development.rb):
 
@@ -153,12 +147,12 @@ Generate Portfolio Modals
 	<% end %>
 
 
-Get Blog/News into Blog/News section #DONE#
----------------------------------------
+Get Blog/News into Blog/News section
+------------------------------------
 
 show 5 latest posts in timeline:
 
-@blogs.order("blog_date desc").limit(5).each do |blog|
+	@blogs.order("blog_date desc").limit(5).each do |blog|
 
 
 
