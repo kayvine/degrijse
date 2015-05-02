@@ -32,10 +32,10 @@ gem 'rmagick', :git=>'http://github.com/rmagick/rmagick.git'
 gem "paperclip-storage-ftp"
 gem "image_optim_bin", group: :production
 gem "paperclip-optimizer"
-
 # Use for nested forms
 gem 'cocoon'
 gem 'simple_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -54,6 +54,9 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'foreman'
+
 end
 
 gem 'rails_12factor', group: :production
