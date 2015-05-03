@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+	root 'welcome#index'
+
+	# not to sure about this. save?
+	get '/', to: 'welcome#new'
+	post '/', to: 'welcome#create'
   
 	devise_for :admin_users, ActiveAdmin::Devise.config
 	ActiveAdmin.routes(self)
@@ -7,15 +13,16 @@ Rails.application.routes.draw do
 	resources :categories
 	resources :works
 	resources :photos
+	resources :messages, only: [:new, :create]
 	
-	get 'contact', to: 'messages#new', as: 'contact'
-	post 'contact', to: 'messages#create'
+	# get 'contact', to: 'messages#new', as: 'contact'
+	# post 'contact', to: 'messages#create'
 	
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
 
 	# You can have the root of your site routed with "root"
-	root 'welcome#index'
+	# root 'welcome#index'
 
 	# Example of regular route:
 	#   get 'products/:id' => 'catalog#view'

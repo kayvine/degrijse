@@ -1,15 +1,6 @@
-class Message
+class Message < ActiveRecord::Base
 
-  include ActiveModel::Model
-  include ActiveModel::Conversion
-  include ActiveModel::Validations
-
-  attr_accessor :name, :email, :content
-
-  validates :name, presence: true
-
-  validates :email, presence: true, format: /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
-
-  validates :content, presence: true
+  validates :name, :email, :content, presence: true
+  validates_format_of :email, with: /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
 
 end

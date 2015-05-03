@@ -175,25 +175,12 @@
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-12">
-								<form name="sentMessage" id="contactForm" novalidate>
-									<div class="form-group">
-											<input type="text" class="form-control" placeholder="Je naam *" id="name" required data-validation-required-message="Vul je naam in.">
-											<p class="help-block text-danger"></p>
-									</div>
-									<div class="form-group">
-											<input type="email" class="form-control" placeholder="Jouw e-mail *" id="email" required data-validation-required-message="Vul je e-mailadres in.">
-											<p class="help-block text-danger"></p>
-									</div>
-									<div class="form-group">
-											<textarea class="form-control" placeholder="Laat je boodschap achter *" id="message" required data-validation-required-message="Vul je boodschap in."></textarea>
-											<p class="help-block text-danger"></p>
-									</div>
-									<div class="clearfix"></div>
-									<div class="">
-											<div id="success"></div>
-											<button type="submit" class="btn btn-lg">Verstuur</button>
-									</div>
-								</form>
+								<% flash.each do |key, value| %>
+									<div class="alert alert-<%= key %> alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">&times;</span></button><%= value %></div>
+								<% end %>
+								<%= render 'message_fields' %>
 						</div>
 				</div>
 		</div>
