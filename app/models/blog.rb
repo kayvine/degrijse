@@ -14,6 +14,7 @@ class Blog < ActiveRecord::Base
 
 		# The full URL of where the attachment is publicly accessible.
 		# This supports Paperclip::Interpolations.
+		# For secure site use https://
 		:url => "http://www.papomode.be/rubytest/images/blog/:style/:filename",
 
 		# The list of FTP servers to use
