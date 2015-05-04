@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 	resources :categories
 	resources :works
 	resources :photos
-	resources :messages, only: [:new, :create]
+	# resources :messages, only: [:new, :create]
 	
 	# get 'contact', to: 'messages#new', as: 'contact'
 	# post 'contact', to: 'messages#create'

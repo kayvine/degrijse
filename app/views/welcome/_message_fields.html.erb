@@ -1,4 +1,4 @@
-<%= simple_form_for @message, url: root_path do |f| %>
+<%= simple_form_for @message, url: { controller: "welcome", action: "create" , anchor: "contact" } do |f| %>
 	<div class="form-group">
 		<%= f.input_field :name, placeholder: "Je naam *", class: 'form-control' %>
 		<p class="help-block text-danger"></p>
