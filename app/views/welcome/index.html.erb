@@ -98,7 +98,7 @@
 								</a>
 								<div class="portfolio-caption">
 										<h4><%= work.title %></h4>
-										<p class="text-muted"><%= work.category.name %></p>
+										<p class="text-muted"><%= work.year %></p>
 								</div>
 						</div>
 					<% end %>
@@ -233,9 +233,11 @@
 													</div>
 													<p><%= work.description %></p>
 													<ul class="list-inline">
-															<li>Datum: July 2014 => nodig?</li>
-															<li>Client: Round Icons => nodig?</li>
-															<li>Categorie: <%= work.category.name %></li>
+															<li>Jaar: <%= work.year %></li>
+															<% if !work.place.blank? %>
+															<li>Plaats: <%= work.place %></li><% end %>
+															<% if !work.category.blank? %>
+															<li>Categorie: <%= work.category.name %></li><% end %>
 													</ul>
 													<button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Sluit Project</button>
 											</div>

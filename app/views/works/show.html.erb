@@ -14,6 +14,11 @@
 </p>
 
 <p>
+	<strong>Place:</strong>
+	<%= @work.place %>
+</p>
+
+<p>
 	<strong>Category:</strong>
 	<%= @work.category.name %>
 </p>
@@ -22,7 +27,7 @@
 	<strong>Photo(s):</strong><br>
 	<% for photo in @work.photos %>
 		<%= photo.title %><br>
-		<%= image_tag photo.image.url(:medium) %>
+		<%= image_tag photo.image.url(:medium) %><br>
 	<% end %>
 </p>
 

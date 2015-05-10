@@ -10,7 +10,7 @@
 			<th>Description</th>
 			<th>Year</th>
 			<th>Category</th>
-			<th>Photo</th>
+			<th>Number of photos</th>
 			<th colspan="3"></th>
 		</tr>
 	</thead>
@@ -22,10 +22,7 @@
 				<td><%= work.description %></td>
 				<td><%= work.year %></td>
 				<td><%= work.category.name %></td>
-				<% work.photos.each do |photo| %>
-					<td><%= photo.title %></td> 
-					<td><%= image_tag photo.image.url(:thumb) %></td>
-				<% end %>
+				<td><%= work.photos.count %></td> 
 				<td><%= link_to 'Show', work %></td>
 				<td><%= link_to 'Edit', edit_work_path(work) %></td>
 				<td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>

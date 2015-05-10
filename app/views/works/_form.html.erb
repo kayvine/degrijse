@@ -2,6 +2,7 @@
 	<%= f.input :title %>
 	<%= f.input :description %>
 	<%= f.input :year, collection: 2007..Date.today.year, prompt: "Select year" %>
+	<%= f.input :place %>
 	<%= f.input :category_id, collection: @categories, prompt: "Please select" %>
 	<h3 id="photos">Photos</h3>
 	<%= f.simple_fields_for :photos do |photo| %>
@@ -12,6 +13,6 @@
 	</div>
 	<br>
 	<div class="actions">
-		<%= f.button :submit, :disable_with => 'Please wait ...' %>
+		<%= f.button :submit, 'Save Work', :disable_with => 'Please wait ...' %>
 	</div>
 <% end %>

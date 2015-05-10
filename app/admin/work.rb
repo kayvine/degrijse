@@ -1,5 +1,5 @@
 ActiveAdmin.register Work do
-	permit_params :title, :description, :year, :category_id, 
+	permit_params :title, :description, :year, :place, :category_id, 
 			photos_attributes: [:id, :title, :image, :_destroy]
 
 	form :html => { :enctype => "multipart/form-data" } do |f|
@@ -7,6 +7,7 @@ ActiveAdmin.register Work do
 			f.input :title, label: "Titel"
 			f.input :description, label: "Beschrijving"
 			f.input :year, label: "Jaar", as: :select, collection: 2007..Date.today.year
+			f.input	:place, label: "Plaats"
 			f.input	:category, label: "Categorie"
 			f.has_many :photos, heading: "Foto's" do |p|
 				p.input :title, label: "Afbeelding titel"
@@ -25,6 +26,7 @@ ActiveAdmin.register Work do
 		column :title
 		column :description
 		column :year
+		column :place
 		column :category
 		actions
 	end
@@ -48,6 +50,7 @@ ActiveAdmin.register Work do
 		attributes_table_for work do
 			row :description
 			row :year
+			row :place
 			row :category
 		end
 	end
