@@ -75,7 +75,7 @@ class WorksController < InheritedResources::Base
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def work_params
-			params.require(:work).permit(:id, :title, :description, :category_id, 
+			params.require(:work).permit(:id, :title, :description, :year, :category_id, 
 				photos_attributes: [:id, :title, :image, :_destroy])
 		end
 end

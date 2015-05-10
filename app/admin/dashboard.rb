@@ -14,6 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
 		  h3 "Your recent works"
 		  table_for Work.order("created_at desc").limit(5) do
 		    column :title
+		    column :year
 		    column :created_at
 		  end
 		  strong { link_to "View All Works", admin_works_path }
@@ -23,6 +24,7 @@ ActiveAdmin.register_page "Dashboard" do
 		  h3 "Your recent blogs"
 		  table_for Blog.order("created_at desc").limit(5) do
 		    column :blog_title
+		    column :blog_date
 		    column :created_at
 		  end
 		  strong { link_to "View All Blogs", admin_blogs_path }

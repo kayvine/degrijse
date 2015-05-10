@@ -1,16 +1,17 @@
 ActiveAdmin.register Work do
-	permit_params :title, :description, :category_id, 
+	permit_params :title, :description, :year, :category_id, 
 			photos_attributes: [:id, :title, :image, :_destroy]
 
 	form :html => { :enctype => "multipart/form-data" } do |f|
 		f.inputs do
 			f.input :title, label: "Titel"
 			f.input :description, label: "Beschrijving"
+			f.input :year, label: "Jaar", as: :select, collection: 2007..Date.today.year
 			f.input	:category, label: "Categorie"
 			f.has_many :photos, heading: "Foto's" do |p|
 				p.input :title, label: "Afbeelding titel"
 				p.input :image, as: :file, label: "Afbeelding", hint: image_tag(p.object.image.url(:thumb))
-				p.input :_destroy, as: :boolean, required: false, label: 'Remove photo'
+				p.input :_destroy, as: :boolean, required: false, label: 'Verwijder foto'
 			end
 		end
 			# f.inputs :for => :photos, allow_destroy: true, new_record: false do |p|
@@ -23,6 +24,7 @@ ActiveAdmin.register Work do
 	index do
 		column :title
 		column :description
+		column :year
 		column :category
 		actions
 	end
@@ -45,6 +47,7 @@ ActiveAdmin.register Work do
 	sidebar "Work Information", only: [:show] do
 		attributes_table_for work do
 			row :description
+			row :year
 			row :category
 		end
 	end

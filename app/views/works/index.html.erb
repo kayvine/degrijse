@@ -8,6 +8,7 @@
 		<tr>
 			<th>Title</th>
 			<th>Description</th>
+			<th>Year</th>
 			<th>Category</th>
 			<th>Photo</th>
 			<th colspan="3"></th>
@@ -19,6 +20,7 @@
 			<tr>
 				<td><%= work.title %></td>
 				<td><%= work.description %></td>
+				<td><%= work.year %></td>
 				<td><%= work.category.name %></td>
 				<% work.photos.each do |photo| %>
 					<td><%= photo.title %></td> 

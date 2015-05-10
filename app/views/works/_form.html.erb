@@ -1,7 +1,8 @@
 <%= simple_form_for @work, html: { :multipart => true } do |f| %>
 	<%= f.input :title %>
 	<%= f.input :description %>
-	<%= f.input :category_id, collection: @categories, as: :select, prompt: "Please select" %>
+	<%= f.input :year, collection: 2007..Date.today.year, prompt: "Select year" %>
+	<%= f.input :category_id, collection: @categories, prompt: "Please select" %>
 	<h3 id="photos">Photos</h3>
 	<%= f.simple_fields_for :photos do |photo| %>
 		<%= render 'photo_fields', :f => photo %>
