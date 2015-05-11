@@ -10,20 +10,20 @@ class Blog < ActiveRecord::Base
 
 		# Set where to store the file on the FTP server(s).
 		# This supports Paperclip::Interpolations.
-		:path => "/rubytest/images/blog/:style/:filename",
+		:path => "/heroku/blog/images/:style/:filename",
 
 		# The full URL of where the attachment is publicly accessible.
 		# This supports Paperclip::Interpolations.
 		# For secure site use https://
-		:url => "http://www.papomode.be/rubytest/images/blog/:style/:filename",
+		:url => "http://www.jeroendegrijse.be/heroku/blog/images/:style/:filename",
 
 		# The list of FTP servers to use
 		:ftp_servers => [
 		  {
-			:host     => "ftp.papomode.be",
-			:user     => "papomode.be",
-			:password => "fvhb11",
-			:port     => 21, # optional, 21 by default
+			:host     => "sftp.jeroendegrijse.be",
+			:user     => "jeroendegrijse.be",
+			:password => "malojas12",
+			:port     => 22, # optional, 21 by default
 			:passive  => true  # optional, false by default
 		  }
 		]
