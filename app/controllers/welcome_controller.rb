@@ -4,6 +4,8 @@ class WelcomeController < ApplicationController
 	def index
 		@works = Work.all
 		@blogs = Blog.all
+		@resumes = Resume.all.order(year: :desc)
+		@resumes_years = @resumes.group_by { |t| t.year }
 	end
 
 	def new

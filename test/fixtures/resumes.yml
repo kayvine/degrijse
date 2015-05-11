@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  year: 1
+  location: MyString
+  text: MyText
+  artists: MyString
+  curator: MyString
+  link: 
+
+two:
+  title: MyString
+  year: 1
+  location: MyString
+  text: MyText
+  artists: MyString
+  curator: MyString
+  link: 

@@ -1,0 +1,41 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @resume.title %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @resume.year %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @resume.location %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @resume.text %>
+</p>
+
+<p>
+  <strong>Artists:</strong>
+  <%= @resume.artists %>
+</p>
+
+<p>
+  <strong>Curator:</strong>
+  <%= @resume.curator %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @resume.link %>
+</p>
+<br>
+<%= link_to 'Edit', edit_resume_path(@resume) %> |
+<%= link_to 'Back', resumes_path %>
+</div>

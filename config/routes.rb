@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :resumes
 	root 'welcome#index'
 
 	# not to sure about this. save?
