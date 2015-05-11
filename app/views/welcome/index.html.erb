@@ -254,21 +254,23 @@
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="modal-body">
-						<h2>Curriculum</h2><!-- Project Details Go Here -->
+						<h2>Curriculum</h2>
+						<div>
 						<% @resumes_years.sort.each do |year, resumes| %>
-							<h2><%= year %></h2>
+							<div class="section-title"><%= year %></div>
 							<% for resume in resumes %>
-								<div>
-									<strong><%= resume.title %></strong>
-									<p><%= resume.text %></p>
-								</div>
+								<ul class="curriculum">
+									<li><strong><%= resume.title %></strong></li>
+									<li><%= resume.location %></li>
+									<li><%= resume.text %></li>
+									<% if !resume.artists.blank? %><li>Artists: <%= resume.artists %></li><% end %>
+									<% if !resume.curator.blank? %><li>Curator: <%= resume.curator %></li><% end %>
+									<li><%= resume.link %></li>
+								</ul>
 							<% end %>
 						<% end %>
-						<ul>
-							<li class="section-title">Jaar: </li>
-							<li>Locatie: </li>
-							<li>Categorie: </li>
-						</ul>
+						</div>
+						<p>&nbsp;</p>
 						<button type="button" class="btn btn-primary" data-dismiss="modal">
 							<i class="fa fa-times"></i> Sluit Project</button>
 					</div>

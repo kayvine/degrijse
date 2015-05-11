@@ -1,5 +1,5 @@
 class WorksController < InheritedResources::Base
-	before_filter :basic_authenticate, only: [:new, :create, :destroy]
+	before_filter :basic_authenticate
 	before_action :set_work, only: [:show, :edit, :update, :destroy]
 
 	# GET /works

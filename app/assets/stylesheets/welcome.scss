@@ -764,13 +764,13 @@ ul.social-buttons li a:active {
 }
 
 .portfolio-modal .modal-content h2 {
-	margin-bottom: 15px;
+	margin-bottom: 30px;
+	margin-top: 0;
 	font-size: 3em;
 }
 
-.portfolio-modal .modal-content .carousel {margin-bottom: 40px;}
+/*.portfolio-modal .modal-content .carousel {margin-bottom: 40px;}
 .portfolio-modal .modal-content .carousel .controls {
-	/*display: none;*/
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
@@ -798,8 +798,8 @@ ul.social-buttons li a:active {
 }
 .portfolio-modal .modal-content .carousel .controls.left i,
 .portfolio-modal .modal-content .carousel .controls.right i {
-	/*margin-left: -15px;*/
 }
+*/
 
 .portfolio-modal .modal-content p {
 	margin-bottom: 30px;
@@ -859,6 +859,22 @@ ul.social-buttons li a:active {
 .portfolio-modal .modal-backdrop {
 	display: none;
 	opacity: 0;
+}
+
+.portfolio-modal .modal-content .section-title {
+	float: left;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: left;
+}
+
+.portfolio-modal .modal-content ul.curriculum {
+	text-align: left;
+	padding-left: 50%;
+	margin-bottom: 12px;
+	li {
+		list-style: none;
+	}
 }
 
 ::-moz-selection {
