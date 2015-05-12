@@ -27,18 +27,12 @@ ActiveAdmin.register Blog do
 	end
 
 	show title: :blog_title do
-		ul do
-			li simple_format(blog.blog_text)
-			li do
-				strong "Datum:"
-				span l blog.blog_date, format: :long
-			end
-			li do
-				link_to blog.blog_link, blog.blog_link
-			end
-			li do
-				strong "Afbeelding:"
-				div image_tag blog.blog_image
+		attributes_table do
+			row :blog_text
+			row :blog_date, format: :long
+			row :blog_link
+			row :blog_image do |p|
+				image_tag p.blog_image.url(:medium)
 			end
 		end
 	end

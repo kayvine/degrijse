@@ -2,9 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Needed to make Paperclip work with ftp
-require "paperclip/storage/ftp"
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
