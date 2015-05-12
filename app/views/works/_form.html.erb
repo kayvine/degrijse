@@ -13,6 +13,6 @@
 	</div>
 	<br>
 	<div class="actions">
-		<%= f.button :submit, 'Save Work', :disable_with => 'Please wait ...' %>
+		<%= f.button :submit, 'Save Work', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."} %>
 	</div>
 <% end %>

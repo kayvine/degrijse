@@ -12,7 +12,14 @@ ActiveAdmin.register Blog do
 				? image_tag(f.object.blog_image.url(:thumb))
 				: content_tag(:span, "no cover page yet")
 		end
-		f.actions
+		f.actions do
+			li class: "action input_action", id: "blog_submit_action" do
+				f.submit "Save", data: { disable_with: "Please wait..." }
+			end
+			li class: "cancel" do
+				link_to "Cancel", admin_blogs_path
+			end
+		end
 	end
 
 	index do

@@ -2,7 +2,7 @@ ActiveAdmin.register Work do
 	permit_params :title, :description, :year, :place, :category_id, 
 			photos_attributes: [:id, :title, :image, :_destroy]
 
-	form :html => { :enctype => "multipart/form-data" } do |f|
+	form html: { enctype: "multipart/form-data" } do |f|
 		f.inputs do
 			f.input :title, label: "Titel"
 			f.input :description, label: "Beschrijving"
@@ -19,7 +19,14 @@ ActiveAdmin.register Work do
 			# 	p.input :image, :as => :file, input_html: { multiple: true}, :hint => p.template.image_tag(p.object.image.url(:thumb))
 			# 	p.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove photo'
 			# end
-		f.actions
+		f.actions do
+			li class: "action input_action", id: "work_submit_action" do
+				f.submit "Save", data: { disable_with: "Please wait..." }
+			end
+			li class: "cancel" do
+				link_to "Cancel", admin_works_path
+			end
+		end
 	end
 
 	index do
