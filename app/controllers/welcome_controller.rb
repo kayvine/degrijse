@@ -17,6 +17,9 @@ class WelcomeController < ApplicationController
 	def create
 		@works = Work.all
 		@blogs = Blog.all
+		@resumes = Resume.all.order(year: :desc)
+		@resumes_years = @resumes.group_by { |t| t.year }
+		
 		@message = Message.new(message_params)
 		if @message.valid?
 			# Tell the messageMailer to send a new message if valid

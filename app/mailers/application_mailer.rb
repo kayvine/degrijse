@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "Your Mailer <noreply@degrijse.com>"
-  default to: "Your Name <kevin.delme@gmail.com>"
+  default from: "Website <contact@jeroendegrijse.be>"
+  default to: "Jeroen <contact@jeroendegrijse.be>"
   layout 'mailer'
 end
