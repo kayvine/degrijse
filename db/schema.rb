@@ -68,15 +68,6 @@ ActiveRecord::Schema.define(version: 20150510173554) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "contactforms", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "message"
-    t.string   "nickname"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -84,15 +75,17 @@ ActiveRecord::Schema.define(version: 20150510173554) do
   end
 
   create_table "photos", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "work_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "work_id"
-    t.string   "title"
   end
+
+  add_index "photos", ["work_id"], name: "index_photos_on_work_id", using: :btree
 
   create_table "resumes", force: :cascade do |t|
     t.string   "title"
@@ -109,11 +102,13 @@ ActiveRecord::Schema.define(version: 20150510173554) do
   create_table "works", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "category_id"
     t.integer  "year"
     t.string   "place"
   end
+
+  add_index "works", ["category_id"], name: "index_works_on_category_id", using: :btree
 
 end
